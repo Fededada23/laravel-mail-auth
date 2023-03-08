@@ -28,6 +28,18 @@
                             <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
+                    <div class="form-group my-2">
+                        <label class="fs-2 fw-semibold form-label" for="immagine">Immagini</label>
+                        <div>
+                            <img src="{{asset('storage/' .$project->cover_image)}}" alt="">
+                        </div>    
+                        <input type="file" class="form-control" name="cover_image" id="immagine">
+                        @error('cover_image')
+                            <div class="mt-2 alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="type_id">Categorie</label>
                         <select class="form-control" name="type_id" id="type_id">
