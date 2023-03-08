@@ -77,11 +77,11 @@ class ProjectController extends Controller
         $new_lead= new Lead();
         $new_lead->title = $data['title'];
         $new_lead->description = $data['description'];
-        $new_lead->slug = $data['slug'];
+       
         
         $new_lead->save();
-
         Mail::to('hello@example.com')->send(new ConfirmProject($new_lead));
+
 
         
 

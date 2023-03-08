@@ -25,7 +25,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => ['required','unique:projects','max:150'],
-            'content' =>['nullable'],
+            'description' =>['nullable'],
             'type_id' => ['nullable','exists:types,id'],
             'technologies' =>['exists:technologies,id'],
             'cover_image' => ['nullable', 'image']
