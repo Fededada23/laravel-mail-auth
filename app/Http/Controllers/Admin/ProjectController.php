@@ -10,6 +10,9 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Http\Controllers\Controller; 
 use Illuminate\Support\Facades\Storage;
+use App\Models\Lead;
+use App\Mail\ConfirmProject;
+use Illuminate\Support\Facades\Mail;
 
 
 class ProjectController extends Controller
@@ -70,6 +73,17 @@ class ProjectController extends Controller
         if($request->has('technologies')){
             $newProject->technologies()->attach($request->technologies);
         }
+
+        $new_lead= new Lead();
+        $new_lead->title = $data['title'];
+        $new_lead->description = $data['description'];
+        $new_lead->slug = $data['slug'];
+        
+        $new_lead->save();
+
+        Mail::to('hello@example.com')->send(new ConfirmProject($new_lead));
+
+        
 
         
 
