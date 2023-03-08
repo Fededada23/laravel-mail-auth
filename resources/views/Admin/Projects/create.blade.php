@@ -9,7 +9,7 @@
                         <div class="alert alert-danger">{{$error}}</div>
                     @endforeach
                 @endif
-                <form method="POST" action="{{route('admin.projects.store')}}">
+                <form method="POST" action="{{route('admin.projects.store')}}" enctype="multipart/form-data">
                     @csrf 
 
                     <div class="form-group my-2">
@@ -19,6 +19,15 @@
                     <div class="form-group my-2">
                         <label class="fs-2 fw-semibold" for="description">Descrizione</label>
                         <textarea type="password" class="form-control" name="description" id="description" placeholder="Inserire Descrizione"></textarea>
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="fs-2 fw-semibold form-label" for="immagine">Immagini</label>
+                        <input type="file" class="form-control" name="cover_image" id="immagine">
+                        @error('cover_image')
+                            <div class="mt-2 alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group my-2">
                         <label class="fs-2 fw-semibold" for="type_id">Categorie</label>

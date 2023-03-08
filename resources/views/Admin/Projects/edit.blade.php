@@ -7,7 +7,7 @@
                 <h4>Modifica progetto</h4>
             </div>
             <div class="col-12">
-                <form action="{{route('admin.projects.update', $project->slug)}}" method="POST">
+                <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
