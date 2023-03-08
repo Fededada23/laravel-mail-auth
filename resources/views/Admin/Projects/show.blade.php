@@ -8,6 +8,9 @@
                 <div class="d-flex justify-content-between">
                     <h3>Dettaglio project: {{$project->title}}</h3>
                 <div>
+                <div class="my-3">
+                    <img src="{{ asset('storage/' .$project->cover_image)}}" alt="{{$project->title}}">
+                </div> 
                 <a href="{{route('admin.projects.index')}}" class="btn btn-primary btn-sm">Go back</a>
             </div>
         </div>
