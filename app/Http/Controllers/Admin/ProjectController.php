@@ -9,6 +9,7 @@ use App\Models\Type;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Http\Controllers\Controller; 
+use Illuminate\Support\Facades\Storage;
 
 
 class ProjectController extends Controller
@@ -56,6 +57,11 @@ class ProjectController extends Controller
         
         
         $newProject = new Project();
+
+        if($request->has('cover_image')){
+            $path = Storage::disk('public')->put('cover_image', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
         
         $newProject->fill($data);
         
